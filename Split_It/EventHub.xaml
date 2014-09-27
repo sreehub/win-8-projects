@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="Split_It.EventHub"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Split_It"
+    xmlns:viewHelpers="using:Split_It.ViewHelpers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    DataContext="{Binding DefaultViewModel.Data, RelativeSource={RelativeSource Self}}"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <DataTemplate x:Key="MemberTemplate">
+            <Grid Margin="0,0,9.5,9.5"  Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Height="138.5" Width="138.5">
+                <Border  Background="Yellow"></Border>
+                <TextBlock Foreground="Black" Text="{Binding Name}" VerticalAlignment="Top" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}"/>
+                <TextBlock Foreground="Black" VerticalAlignment="Bottom" FontSize="14" FontStyle="Italic" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}">
+                    <Run Text="{Binding TotalExpense}"></Run>
+                    <Run Text="/-"></Run>
+                </TextBlock>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="NewMemberTemplate">
+            <Grid Margin="0,0,9.5,9.5"  Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Height="138.5" Width="138.5">
+                <Border  Background="White"></Border>
+                <TextBlock Foreground="Black" Text="add member" VerticalAlignment="Center" Margin="9.5,0,0,6.5" Style="{ThemeResource BaseTextBlockStyle}"/>               
+            </Grid>
+        </DataTemplate>
+
+        <viewHelpers:MemberTemplateSelector x:Name="memberTemplateSelector"
+                                            MemberItemTemplate="{StaticResource MemberTemplate}"
+                                            NewMemberItemTemplate="{StaticResource NewMemberTemplate}"></viewHelpers:MemberTemplateSelector>
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Hub x:Name="Hub" Header="expenses console">
+            <HubSection x:Name="MemberSection" Header="MEMBERS" Width="Auto" DataContext="{Binding}">
+                <DataTemplate>
+                    <GridView
+                        Margin="0,9.5,0,0"
+                        ItemsSource="{Binding Members}"
+                        AutomationProperties.AutomationId="ItemGridView"
+                        AutomationProperties.Name="Items In Group"
+                        ItemTemplateSelector="{StaticResource memberTemplateSelector}"                       
+                        SelectionMode="None"
+                        IsItemClickEnabled="True"
+                        ItemClick="Members_MemberClick"
+                        ContinuumNavigationTransitionInfo.ExitElementContainer="True">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+            <HubSection x:Name="CategorySection" Header="CATEGORIES" Width="Auto">
+            </HubSection>
+        </Hub>
+    </Grid>
+</Page>

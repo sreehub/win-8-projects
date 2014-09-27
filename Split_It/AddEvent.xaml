@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="Split_It.AddEvent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Split_It"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="20,0,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Style="{StaticResource TitleTextBlockStyle}"
+                   Text="SPLIT IT"></TextBlock>
+        <TextBlock Grid.Row="1"
+                   Style="{StaticResource HeaderTextBlockStyle}"
+                   Text="new event"></TextBlock>
+
+        <Grid Grid.Row="2" Background="Black">
+
+            <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                   Text="Name :" 
+                   Margin="10,49,10,425">
+            </TextBlock>
+
+            <TextBox x:Name="txtEventName"                      
+                     PlaceholderText="event name"
+                     Margin="10,90,10,0">
+            </TextBox>
+            
+            <Button x:Name="btnAddEvent" 
+                    Margin="10,202,0,251"
+                    Click="btnAddEvent_Click"
+                    Content="Add">                    
+            </Button>
+
+            <TextBlock x:Name="txtErrorMessage" 
+                       Margin="10,308,0,161"
+                       Style="{StaticResource MessageDialogContentStyle}"
+                       TextWrapping="Wrap"
+                       Foreground="red">
+                
+            </TextBlock>
+
+        </Grid>
+    </Grid>
+</Page>

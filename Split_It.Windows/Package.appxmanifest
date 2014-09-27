@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+
+  <Identity Name="af1ac19e-582a-42b7-8a14-53331b5b2f4a"
+            Publisher="CN=Sreerag"
+            Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>Split_It.Windows</DisplayName>
+    <PublisherDisplayName>Sreerag</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+        Executable="$targetnametoken$.exe"
+        EntryPoint="Split_It.Windows.App">
+        <m2:VisualElements
+            DisplayName="Split_It.Windows"
+            Square150x150Logo="Assets\Logo.png"
+            Square30x30Logo="Assets\SmallLogo.png"
+            Description="Split_It.Windows"
+            ForegroundText="light"
+            BackgroundColor="#464646">
+            <m2:SplashScreen Image="Assets\SplashScreen.png" />
+        </m2:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>b2b3031b-f91b-4cf5-aa56-70d925cc7cb9</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Split_It</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
